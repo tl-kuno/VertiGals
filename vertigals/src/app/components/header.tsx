@@ -1,41 +1,40 @@
 'use client';
 
-import { ExternalNavigationMap } from '../metaData/externalNavigationMap';
-import { NavigationProps } from '../metaData/propsInterface';
-
+import { NavigationMap } from '../NavigationMap';
 import NavIcons from './navIcons';
 
-export default function Header(props: NavigationProps) {
-    const { curLocation, setLocation } = props;
-    const { pages } = ExternalNavigationMap;
+export default function Header(props) {
+  const { location, onNavigate } = props;
+  const { pages } = NavigationMap;
 
-    const NavLink = (page: string) => {
-        const pageId = page.toLowerCase();
+  const NavLink = (page: string) => {
+    const pageId = page.toLowerCase();
 
-        const isCurrentPage = pageId === curLocation;
-        let className = 'nav-item';
-        if (isCurrentPage) {
-            className += ' current';
-        }
-
-        return (
-            <div
-                id={pageId}
-                key={pageId}
-                className={className}
-                onClick={() => setLocation(pageId)}
-            >
-                {page}
-            </div>
-        );
-    };
+    const isCurrentPage = pageId === 'home';
+    let className = 'nav-item';
+    if (isCurrentPage) {
+      className += ' current';
+    }
 
     return (
-        <header className="grid-container halves">
-            <div className="flex flex-row fr-start">
-                {pages.map((page) => NavLink(page))}
-            </div>
-            <NavIcons location="header" />
-        </header>
+      <div
+        id={pageId}
+        key={pageId}
+        className={className}
+        onClick={(pageId) => onNavigate(pageId)}
+      >
+        {page}
+      </div>
     );
+  };
+
+  return (
+    <header className="grid-container thirds">
+      <div className="flex flex-row fr-start">
+        {pages.map((page) => NavLink(page))}
+      </div>
+      <div className="mock-logo" />
+      <NavIcons location="header" />
+    </header>
+  );
 }

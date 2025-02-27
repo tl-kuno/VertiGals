@@ -1,42 +1,29 @@
 'use client';
 
-import { IconType } from 'react-icons';
-import { ExternalNavigationMap } from '../metaData/externalNavigationMap';
+import { NavigationMap } from '../NavigationMap';
 
-interface NavIconProps {
-    location: string;
-}
+export default function NavIcons(props) {
+  const { location } = props;
+  const { iconLinks } = NavigationMap;
 
-interface NavIcon {
-    id: string;
-    Icon: IconType;
-    link: string;
-}
+  const NavIcon = (icon) => {
+    const { id, Icon, link } = icon;
 
-export default function NavIcons(props: NavIconProps) {
-    const { location } = props;
-    const { iconLinks } = ExternalNavigationMap;
+    let className = `nav-icon`;
+    if (location === 'footer' && id === 'email') {
+      className += ' hide-on-large';
+    }
 
-    const NavIcon = (icon: NavIcon) => {
-        const { id, Icon, link } = icon;
-
-        let className = `nav-icon`;
-        if (location === 'footer' && id === 'email') {
-            className += ' hide-on-large';
-        }
-
-        return (
-            <a className={className} href={link} target="_blank" key={id}>
-                <Icon className="icon-link" />
-            </a>
-        );
-    };
-
-    const rowClass =
-        location === 'footer'
-            ? 'flex flex-row fr-center'
-            : 'flex flex-row fr-end';
     return (
-        <div className={rowClass}>{iconLinks.map((icon) => NavIcon(icon))}</div>
+      <a className={className} href={link} target="_blank" key={id}>
+        <Icon className="icon-link" />
+      </a>
     );
+  };
+
+  const rowClass =
+    location === 'footer' ? 'flex flex-row fr-center' : 'flex flex-row fr-end';
+  return (
+    <div className={rowClass}>{iconLinks.map((icon) => NavIcon(icon))}</div>
+  );
 }
