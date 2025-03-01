@@ -1,0 +1,67 @@
+.blog-post {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: stretch;
+    margin: 1rem auto;
+    padding: 2rem;
+    max-width: min(80vw, 900px);
+    background-color: var(--teal-lightest);
+    border-radius: 1rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.blog-header {
+    text-align: left;
+    font-family: 'Shadows Into Light Two', serif;
+    color: var(--teal-primary);
+}
+.blog-subheader {
+    margin: 1rem auto;
+    text-align: center;
+}
+.blog-author {
+    margin: 0.25rem 0;
+}
+
+.blog-image-center {
+    position: relative;
+    margin: 0 auto;
+    max-width: min(80vw, 900px);
+}
+
+.blog-caption {
+    margin: 0 auto;
+    color: var(--teal-darker);
+    font-weight: 700;
+    text-align: center;
+}
+
+.blog-photo-credit {
+    margin: 0rem;
+    padding: 0rem;
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.5rem;
+    color: var(--true-white);
+    font-weight: 700;
+}
+
+.blog-copy {
+    text-align: justify;
+    margin: 1rem auto;
+}
+
+.blog-emphasis {
+    font-family: 'Shadows Into Light Two', serif;
+    color: var(--teal-primary);
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.blog-divider {
+    margin: 0.75rem auto;
+    width: 100%;
+    height: 1px;
+    background-color: var(--teal-primary);
+}

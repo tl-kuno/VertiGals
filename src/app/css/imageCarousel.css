@@ -1,0 +1,38 @@
+@import './embla.css';
+
+.board-member-card {
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 150px;
+    max-width: 400px;
+    padding: 0.5rem 1rem;
+}
+
+.caretButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--teal-primary);
+    font-size: var(--iconSizeL3);
+    padding: 0.25rem 0.5rem;
+    margin: auto !important;
+    transition: color 0.5s ease;
+
+    &:hover {
+        background-color: var(--teal-lightest) !important;
+        color: var(--teal-darkest) !important;
+    }
+    &:focus {
+        background-color: var(--teal-lightest) !important;
+        color: var(--teal-darkest) !important;
+    }
+
+    &:active {
+        background-color: var(--teal-lightest) !important;
+        color: var(--teal-darkest) !important;
+    }
+}
