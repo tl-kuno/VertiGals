@@ -1,19 +1,16 @@
 import { SectionMap } from '../metaData/sectionMap';
-import { NavigationProps } from '../metaData/propsInterface';
+import NavigationProps from '../metaData/propsInterface';
 
 export default function SectionCards(props: NavigationProps) {
     const sections = Object.keys(SectionMap);
 
     const onClick = (section: string) => {
-        const { setLocation, openPopUp } = props;
         const sectionInfo = SectionMap[section];
-        const { link, popUpWindow } = sectionInfo;
+        const { link } = sectionInfo;
         if (link) {
             window.open(link, '_blank');
-        } else if (popUpWindow && openPopUp) {
-            openPopUp(popUpWindow);
-        } else if (setLocation) {
-            setLocation(section);
+        } else {
+            props.setLocation(section);
         }
     };
 
@@ -27,7 +24,7 @@ export default function SectionCards(props: NavigationProps) {
                 className={`grid-link ${section}`}
                 onClick={() => onClick(section)}
             >
-                <h1>{title}</h1>
+                <h1 className="hi-primary">{title}</h1>
             </div>
         );
     });
