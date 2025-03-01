@@ -1,0 +1,85 @@
+  {
+    "parser": "@typescript-eslint/parser",
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "extends": [
+        "airbnb",
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "ignorePatterns": ["font", "img", "libs", "!js/node_modules/*"],
+    "plugins": [
+        "jsx-a11y",
+        "react",
+        "react-hooks", 
+        "@typescript-eslint", 
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": ["error"],
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "class-methods-use-this": 0,
+        "import/extensions": 0, // Ensure consistent use of file extension within the import path
+        "import/no-named-as-default": 0, // Reports if named exports are used as property shorthand
+        "import/no-named-as-default-member": 0, // Reports if named exports are used as property shorthand
+        "no-console": 0, // Disallow the use of console
+        "prefer-destructuring": 1, // Prefer destructuring from arrays and objects
+        "no-plusplus": 1, // Disallow the unary operators ++ and --
+        "no-var": 0, // Require let or const instead of var
+        "linebreak-style": 0, // Enforce consistent linebreak style (The project is Windows based)
+        "func-names": 0, // Require or disallow named function expressions
+        "object-shorthand": 0, // Require Object Literal Shorthand Syntax
+        "curly": 2, // Require Following Curly Brace Conventions
+        "no-underscore-dangle": 0, // Disallow dangling underscores in identifiers
+        "consistent-return": 0, // Require return statements to either always or never specify values
+        "prefer-template": 1, // Suggest using template literals instead of string concatenation
+        "no-use-before-define": 1, // Disallow Early Use
+        "no-param-reassign": [ // Disallow Reassignment of Function Parameters
+            "error",
+            {
+                "props": true,
+                "ignorePropertyModificationsFor": ["prev", "acc"]
+            }
+        ],
+        "prefer-arrow-callback": 0, // Require using arrow functions for callbacks
+
+        // Imports
+        "import/no-extraneous-dependencies": 0, // Forbid the use of extraneous packages (The project has a folder "node_modules")
+
+        // React rules
+        "react/no-deprecated": 0,
+        "react/display-name": 0,
+        "react/prop-types": 0,
+        "react/jsx-indent": [2, 4], // Validate JSX indentation
+        "react/jsx-indent-props": [2, 4], // Validate props indentation in JSX
+        "react/jsx-props-no-spreading": 0, // Disallow JSX props spreading
+        // Restrict file extensions that may contain JSX
+        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
+        "react/no-string-refs": 0, // Prevent using string references
+        "react/forbid-prop-types": 0,
+        "react/destructuring-assignment": 1, // Enforce consistent usage of destructuring assignment of props, state, and context
+        "react/jsx-boolean-value": [2, "always"], // Enforce boolean attributes notation in JSX
+        "import/no-unresolved": 0, // Ensures an imported module can be resolved to a module on the local filesystem
+
+        // jsx-a11y
+        "jsx-a11y/no-static-element-interactions": 0,
+        "jsx-a11y/click-events-have-key-events": 0,
+        // Enforce that a label tag has a text label and an associated control.
+        "jsx-a11y/label-has-associated-control": 0,
+        // Non-interactive HTML elements and non-interactive ARIA roles indicate content and containers in the user interface.
+        "jsx-a11y/no-noninteractive-element-interactions": 0
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}
