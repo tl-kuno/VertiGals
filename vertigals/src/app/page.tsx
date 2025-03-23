@@ -8,6 +8,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Home from './pages/home';
 import ComingSoon from './pages/comingSoon';
+import Window from './components/window';
 
 const solway = Solway({
     weight: ['300', '500', '700', '800'],
@@ -23,13 +24,15 @@ const shadowsIntoLightTwo = Shadows_Into_Light_Two({
 
 interface VGWebsiteState {
     location: string;
+    popUpContent: string | null;
 }
 
 class VertiGalsWebsite extends React.Component<{}, VGWebsiteState> {
     constructor(props: {}) {
         super(props);
         this.state = {
-            location: 'home'
+            location: 'home',
+            popUpContent: null
         };
     }
 
@@ -37,11 +40,19 @@ class VertiGalsWebsite extends React.Component<{}, VGWebsiteState> {
         this.setState({ location: newLocation });
     };
 
+    openPopUp = (popUpType: string) => {
+        this.setState({ popUpContent: popUpType });
+    };
+    closePopUp = () => {
+        this.setState({ popUpContent: null });
+    };
+
     render() {
-        const { location } = this.state;
+        const { location, popUpContent } = this.state;
 
         const pageProps = {
-            setLocation: this.setLocation
+            setLocation: this.setLocation,
+            openPopUp: this.openPopUp
         };
         const navMap: { [key: string]: JSX.Element } = {
             home: <Home {...pageProps} />
@@ -58,6 +69,7 @@ class VertiGalsWebsite extends React.Component<{}, VGWebsiteState> {
                     className={`${solway.className} ${shadowsIntoLightTwo.className}`}
                 />
                 <Header curLocation={location} setLocation={this.setLocation} />
+                <Window popUpContent={popUpContent} onClose={this.closePopUp} />
                 {currentLocation}
                 <Footer />
             </>

@@ -1,9 +1,8 @@
 import SectionCards from '../components/sectionCards';
-import NavigationProps from '../metaData/propsInterface';
+import { NavigationProps } from '../metaData/propsInterface';
+import { writtenContent } from '../metaData/writtenContent';
 
 export default function Home(props: NavigationProps) {
-    const bodyText =
-        'Supporting information about NSVG Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.';
 
     const onClick = () => {
         const mailtoLink =
@@ -11,6 +10,8 @@ export default function Home(props: NavigationProps) {
         window.location.href = mailtoLink;
     };
 
+    const aboutText = `${writtenContent.home.whoAreWe} ${writtenContent.home.whatWeDo}`;
+        
     return (
         <>
             <div className="home-hero">
@@ -21,7 +22,8 @@ export default function Home(props: NavigationProps) {
                     A Women&apos;s Climbing Community on the North Shore of Lake
                     Superior
                 </h1>
-                <p className="copy-primary">{bodyText}</p>
+                <p className="copy-primary">{aboutText}</p>
+
                 <div className="grid-container halves u-vw80">
                     <SectionCards {...props} />
                 </div>
@@ -29,7 +31,7 @@ export default function Home(props: NavigationProps) {
                     Want to stay up-to-date with the North Shore VertiGals?
                 </h2>
                 <div className="flex flex-row fr-center">
-                    <p className="copy-primary">
+                    <p className="copy-accent">
                         Join our email list to get the latest news!
                     </p>
                     <button className="button-primary" onClick={onClick}>
