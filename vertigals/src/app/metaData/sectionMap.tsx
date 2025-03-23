@@ -1,9 +1,6 @@
-import { JSX } from 'react';
-
 interface SectionMap {
     [key: string]: {
         title: string;
-        component?: JSX.Element;
         link?: string;
         popUpWindow?: string;
     };

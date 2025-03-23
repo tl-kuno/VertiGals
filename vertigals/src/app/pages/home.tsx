@@ -3,6 +3,7 @@ import { NavigationProps } from '../metaData/propsInterface';
 import { writtenContent } from '../metaData/writtenContent';
 
 export default function Home(props: NavigationProps) {
+
     const onClick = () => {
         const mailtoLink =
             'mailto:northshorevertigals@email.com?subject=Email List&body=Hello, Please add me to your email list!';
@@ -10,7 +11,7 @@ export default function Home(props: NavigationProps) {
     };
 
     const aboutText = `${writtenContent.home.whoAreWe} ${writtenContent.home.whatWeDo}`;
-
+        
     return (
         <>
             <div className="home-hero">
@@ -22,6 +23,7 @@ export default function Home(props: NavigationProps) {
                     Superior
                 </h1>
                 <p className="copy-primary">{aboutText}</p>
+
                 <div className="grid-container halves u-vw80">
                     <SectionCards {...props} />
                 </div>

@@ -206,7 +206,6 @@ header {
             border-bottom: 1px solid var(--teal-lightest);
         }
     }
-
     .nav-item.current {
         font-weight: 500;
         color: var(--true-white);
