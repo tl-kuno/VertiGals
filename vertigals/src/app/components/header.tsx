@@ -1,7 +1,7 @@
 'use client';
 
 import { ExternalNavigationMap } from '../metaData/externalNavigationMap';
-import NavigationProps from '../metaData/propsInterface';
+import { NavigationProps } from '../metaData/propsInterface';
 
 import NavIcons from './navIcons';
 
@@ -31,11 +31,10 @@ export default function Header(props: NavigationProps) {
     };
 
     return (
-        <header className="grid-container thirds">
+        <header className="grid-container halves">
             <div className="flex flex-row fr-start">
                 {pages.map((page) => NavLink(page))}
             </div>
-            <div className="mock-logo" />
             <NavIcons location="header" />
         </header>
     );
