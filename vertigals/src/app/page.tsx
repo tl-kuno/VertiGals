@@ -1,77 +1,75 @@
-/* eslint-disable @typescript-eslint/no-empty-object-type */
 'use client';
 
-import React, { JSX } from 'react';
-import { Solway, Shadows_Into_Light_Two } from 'next/font/google';
+import React from 'react';
 
-import Header from './components/header';
-import Footer from './components/footer';
-import Home from './pages/home';
-import ComingSoon from './pages/comingSoon';
 import Window from './components/window';
+import SectionCards from './components/sectionCards';
+import { writtenContent } from './metaData/writtenContent';
+import ResponsiveImage from './components/responsiveImage';
 
-const solway = Solway({
-    weight: ['300', '500', '700', '800'],
-    style: 'normal',
-    subsets: ['latin']
-});
-
-const shadowsIntoLightTwo = Shadows_Into_Light_Two({
-    weight: ['400'],
-    style: 'normal',
-    subsets: ['latin', 'latin-ext']
-});
-
-interface VGWebsiteState {
-    location: string;
+interface HomeState {
     popUpContent: string | null;
 }
 
-class VertiGalsWebsite extends React.Component<{}, VGWebsiteState> {
-    constructor(props: {}) {
+class VertiGalsWebsite extends React.Component<
+    Record<string, never>,
+    HomeState
+> {
+    constructor(props: Record<string, never>) {
         super(props);
         this.state = {
-            location: 'home',
             popUpContent: null
         };
     }
 
-    setLocation = (newLocation: string) => {
-        this.setState({ location: newLocation });
-    };
-
-    openPopUp = (popUpType: string) => {
+    openWindow = (popUpType: string) => {
         this.setState({ popUpContent: popUpType });
     };
     closePopUp = () => {
         this.setState({ popUpContent: null });
     };
 
+    onEmailSignUp = () => {
+        const mailtoLink =
+            'mailto:northshorevertigals@email.com?subject=Email List&body=Hello, Please add me to your email list!';
+        window.location.href = mailtoLink;
+    };
+
     render() {
-        const { location, popUpContent } = this.state;
-
-        const pageProps = {
-            setLocation: this.setLocation,
-            openPopUp: this.openPopUp
-        };
-        const navMap: { [key: string]: JSX.Element } = {
-            home: <Home {...pageProps} />
-        };
-
-        let currentLocation = navMap[location];
-        if (!currentLocation) {
-            currentLocation = <ComingSoon />;
-        }
+        const { popUpContent } = this.state;
+        const aboutText = `${writtenContent.home.whoAreWe} ${writtenContent.home.whatWeDo}`;
 
         return (
             <>
-                <main
-                    className={`${solway.className} ${shadowsIntoLightTwo.className}`}
-                />
-                <Header curLocation={location} setLocation={this.setLocation} />
                 <Window popUpContent={popUpContent} onClose={this.closePopUp} />
-                {currentLocation}
-                <Footer />
+                <>
+                    <ResponsiveImage image="homeHero" radius="none" />
+                    <div className="grid-container full">
+                        <h1 className="h1-accent">
+                            A Women&apos;s Climbing Community on the North Shore
+                            of Lake Superior
+                        </h1>
+                        <p className="copy-primary">{aboutText}</p>
+                        <div className="grid-container halves u-vw80">
+                            <SectionCards openWindow={this.openWindow} />
+                        </div>
+                        <h2 className="h2-accent">
+                            Want to stay up-to-date with the North Shore
+                            VertiGals?
+                        </h2>
+                        <div className="flex flex-row fr-center">
+                            <p className="copy-accent">
+                                Join our email list to get the latest news!
+                            </p>
+                            <button
+                                className="button-primary"
+                                onClick={this.onEmailSignUp}
+                            >
+                                Sign up
+                            </button>
+                        </div>
+                    </div>
+                </>
             </>
         );
     }

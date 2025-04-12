@@ -65,6 +65,13 @@ html {
     grid-template-columns: minmax(200px, 1fr);
 }
 
+.hero-grid-right {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0.5rem;
+    max-width: 100%;
+}
+
 /* grids to 3 columns above mobile sizes */
 @media (min-width: 600px) {
     .grid-container {
@@ -258,14 +265,25 @@ p {
 .h2-primary {
     font-size: var(--fontSizeL1);
 }
-.h2-bold {
+
+.h2-card {
     font-size: var(--fontSizeL1);
+    color: var(--teal-darkest);
     font-weight: 500;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0;
 }
+
 .h2-accent {
     font-family: 'Shadows Into Light Two', serif;
     font-size: var(--fontSizeL2);
     color: var(--teal-darkest);
+}
+
+.h3-card {
+    padding: 0.5rem;
+    margin: 0;
 }
 
 .copy-primary {
@@ -286,13 +304,14 @@ p {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
     color: var(--accent-color);
+    text-decoration: none;
 }
 
 a:hover {
     color: var(--accent-color-hover);
 }
 
-/* Buttons
+/* Button Styles and Resets
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button,
 button,
@@ -470,6 +489,46 @@ input[type='button'].button.disabled {
     z-index: 101;
 }
 
+.text-card {
+    > h1 {
+        font-family: 'Shadows Into Light Two', serif;
+        color: var(--teal-lightest);
+        font-size: clamp(1rem, 3.25vw, 3rem);
+        letter-spacing: 0.15rem;
+        margin: 0;
+        padding: 0.5rem 2rem;
+    }
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-self: stretch;
+    text-align: left;
+    background-color: var(--teal-primary);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+/* Image Carousel
+-------------------------------------------------- */
+.embla {
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+  }
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+
+.board-member-card {
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 300px;
+    padding: 0.5rem 1rem;
+}
+
+
 /* Image classes
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .main-logo {
@@ -481,19 +540,6 @@ input[type='button'].button.disabled {
     aspect-ratio: 4/3;
     filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(2%)
         hue-rotate(127deg) brightness(104%) contrast(101%);
-}
-
-.home-hero {
-    height: min(400px, 40vh);
-    max-width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    background-image: url(../images/home_banner.png);
-    background-position-x: left;
-    background-position-y: bottom;
-    background-size: cover;
 }
 
 .grid-link.about {
@@ -510,13 +556,4 @@ input[type='button'].button.disabled {
 
 .grid-link.merch {
     background-image: url(../images/home_merch.png);
-}
-/* Temp classes to be deleted
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.mock-logo {
-    height: 42px;
-    width: 42px;
-    margin: auto;
-    border-radius: 50%;
-    background-color: var(--teal-lighter);
 }

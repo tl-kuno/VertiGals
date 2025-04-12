@@ -1,32 +1,33 @@
 'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import { ExternalNavigationMap } from '../metaData/externalNavigationMap';
-import { NavigationProps } from '../metaData/propsInterface';
 
 import NavIcons from './navIcons';
 
-export default function Header(props: NavigationProps) {
-    const { curLocation, setLocation } = props;
+export default function Header() {
     const { pages } = ExternalNavigationMap;
+    const pathname = usePathname();
 
     const NavLink = (page: string) => {
         const pageId = page.toLowerCase();
+        const pageLink = pageId === 'home' ? '/' : `/${pageId}`;
 
-        const isCurrentPage = pageId === curLocation;
         let className = 'nav-item';
-        if (isCurrentPage) {
+        if (pathname === pageLink) {
             className += ' current';
         }
 
         return (
-            <div
+            <Link
                 id={pageId}
                 key={pageId}
+                href={pageLink}
                 className={className}
-                onClick={() => setLocation(pageId)}
             >
                 {page}
-            </div>
+            </Link>
         );
     };
 

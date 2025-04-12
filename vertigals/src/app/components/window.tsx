@@ -1,5 +1,8 @@
-import { WindowProps } from '../metaData/propsInterface';
 import { WindowMap } from '../metaData/windowMap';
+interface WindowProps {
+    popUpContent: string | null;
+    onClose: () => void;
+}
 
 export default function Window(props: WindowProps) {
     const { popUpContent, onClose } = props;

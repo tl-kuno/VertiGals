@@ -1,25 +1,43 @@
+import Link from 'next/link';
 import { SectionMap } from '../metaData/sectionMap';
-import { NavigationProps } from '../metaData/propsInterface';
 
-export default function SectionCards(props: NavigationProps) {
+interface SectionCardsProps {
+    openWindow?: (popUpType: string) => void;
+}
+
+export default function SectionCards(props: SectionCardsProps) {
+    const { openWindow } = props;
     const sections = Object.keys(SectionMap);
 
     const onClick = (section: string) => {
-        const { setLocation, openPopUp } = props;
         const sectionInfo = SectionMap[section];
-        const { link, popUpWindow } = sectionInfo;
-        if (link) {
-            window.open(link, '_blank');
-        } else if (popUpWindow && openPopUp) {
-            openPopUp(popUpWindow);
-        } else if (setLocation) {
-            setLocation(section);
+        const { popUpType } = sectionInfo;
+        if (popUpType && openWindow) {
+            openWindow(popUpType);
         }
     };
 
     return sections.map((section) => {
         const sectionInfo = SectionMap[section];
-        const { title } = sectionInfo;
+        const { title, link } = sectionInfo;
+        const target = link?.startsWith('http') ? '_blank' : undefined;
+        const rel = link?.startsWith('http')
+            ? 'noopener noreferrer'
+            : undefined;
+
+        if (link) {
+            return (
+                <Link
+                    key={section}
+                    href={link}
+                    className={`grid-link ${section}`}
+                    target={target}
+                    rel={rel}
+                >
+                    <h1>{title}</h1>
+                </Link>
+            );
+        }
 
         return (
             <div
