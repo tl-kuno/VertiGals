@@ -1,22 +1,22 @@
-'use client';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+'use client'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
-import { ExternalNavigationMap } from '../metaData/externalNavigationMap';
-
-import NavIcons from './navIcons';
+import { ExternalNavigationMap } from '../metaData/externalNavigationMap'
+import NavIcons from './navIcons'
+import ResponsiveImage from './responsiveImage'
 
 export default function Header() {
-    const { pages } = ExternalNavigationMap;
-    const pathname = usePathname();
+    const { pages } = ExternalNavigationMap
+    const pathname = usePathname()
 
     const NavLink = (page: string) => {
-        const pageId = page.toLowerCase();
-        const pageLink = pageId === 'home' ? '/' : `/${pageId}`;
+        const pageId = page.toLowerCase()
+        const pageLink = pageId === 'home' ? '/' : `/${pageId}`
 
-        let className = 'nav-item';
+        let className = 'nav-item'
         if (pathname === pageLink) {
-            className += ' current';
+            className += ' current'
         }
 
         return (
@@ -28,15 +28,13 @@ export default function Header() {
             >
                 {page}
             </Link>
-        );
-    };
+        )
+    }
 
     return (
         <header className="grid-container halves">
-            <div className="flex flex-row fr-start">
-                {pages.map((page) => NavLink(page))}
-            </div>
+            <div className="nav-list">{pages.map((page) => NavLink(page))}</div>
             <NavIcons location="header" />
         </header>
-    );
+    )
 }

@@ -1,4 +1,4 @@
-import NavIcons from './navIcons';
+import NavIcons from './navIcons'
 
 export default function Footer() {
     return (
@@ -11,5 +11,5 @@ export default function Footer() {
             </a>
             <NavIcons location="footer" />
         </footer>
-    );
+    )
 }

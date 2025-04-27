@@ -1,18 +1,18 @@
-import { WindowMap } from '../metaData/windowMap';
+import { WindowMap } from '../metaData/windowMap'
 interface WindowProps {
-    popUpContent: string | null;
-    onClose: () => void;
+    popUpContent: string | null
+    onClose: () => void
 }
 
 export default function Window(props: WindowProps) {
-    const { popUpContent, onClose } = props;
+    const { popUpContent, onClose } = props
 
     if (!popUpContent) {
-        return null;
+        return null
     }
 
-    const popUpProps = WindowMap[popUpContent];
-    const { component, title } = popUpProps;
+    const popUpProps = WindowMap[popUpContent]
+    const { component, title } = popUpProps
 
     return (
         <div className="popUpMask">
@@ -24,5 +24,5 @@ export default function Window(props: WindowProps) {
                 </button>
             </div>
         </div>
-    );
+    )
 }
