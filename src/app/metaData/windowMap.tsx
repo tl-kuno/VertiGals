@@ -1,14 +1,14 @@
-import { JSX } from 'react';
+import { JSX } from 'react'
 
-import GoogleCalendar from '../components/calendar';
+import GoogleCalendar from '../components/calendar'
 
 interface WindowMap {
     [key: string]: {
-        title: string;
-        component?: JSX.Element;
-    };
+        title: string
+        component?: JSX.Element
+    }
 }
 
 export const WindowMap: WindowMap = {
-    calendar: { title: 'Upcoming Events', component: GoogleCalendar() }
-};
+    calendar: { title: 'Upcoming Events', component: GoogleCalendar() },
+}

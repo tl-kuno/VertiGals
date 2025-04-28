@@ -1,9 +1,9 @@
 interface SectionMap {
     [key: string]: {
-        title: string;
-        link?: string;
-        popUpType?: string;
-    };
+        title: string
+        link?: string
+        popUpType?: string
+    }
 }
 
 export const SectionMap: SectionMap = {
@@ -12,6 +12,6 @@ export const SectionMap: SectionMap = {
     events: { title: 'Events', popUpType: 'calendar' },
     merch: {
         title: 'Merch',
-        link: 'https://dspondemand.com/collections/north-shore-vertigals-merch'
-    }
-};
+        link: 'https://dspondemand.com/collections/north-shore-vertigals-merch',
+    },
+}
