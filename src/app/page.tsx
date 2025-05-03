@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import validator from 'validator'
 
 import Window from './components/window'
 import SectionCards from './components/sectionCards'
@@ -77,9 +78,7 @@ class VertiGalsWebsite extends React.Component<
 
     handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const email = event.target.value
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        const isEmailValid = emailRegex.test(email)
-
+        const isEmailValid = validator.isEmail(email)
         this.setState({ email, isEmailValid })
     }
 
@@ -102,7 +101,7 @@ class VertiGalsWebsite extends React.Component<
     }
 
     render() {
-        const { popUpContent, email, isEmailValid, signingUp } = this.state
+        const { popUpContent, email, isEmailValid } = this.state
 
         const aboutText = `${writtenContent.home.whoAreWe} ${writtenContent.home.whatWeDo}`
 

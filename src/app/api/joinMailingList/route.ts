@@ -1,7 +1,22 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { Ratelimit } from '@upstash/ratelimit'
+import { kv } from '@vercel/kv'
+
+const ratelimit = new Ratelimit({
+    redis: kv,
+    limiter: Ratelimit.slidingWindow(5, '10 s')
+})
 
 export async function POST(request: Request) {
+    const { success } = await ratelimit.limit('joinMailingList')
+    if (!success) {
+        return NextResponse.json(
+            { error: 'Too many requests, please try again later.' },
+            { status: 429 }
+        )
+    }
+
     try {
         const body = await request.json()
         const { emailToAdd } = body
@@ -17,10 +32,7 @@ export async function POST(request: Request) {
             auth: {
                 user: process.env.VG_EMAIL_USER,
                 pass: process.env.VG_EMAIL_PASSWORD,
-            },
-            tls: {
-                rejectUnauthorized: false,
-            },
+            }
         })
 
         const mailOptions = {
@@ -38,7 +50,9 @@ export async function POST(request: Request) {
             { status: 200 }
         )
     } catch (error) {
-        console.error('Error sending email:', error)
+        if (process.env.NODE_ENV !== 'production') {
+            console.error('Error sending email:', error)
+        }
         return NextResponse.json(
             { error: 'Something went wrong' },
             { status: 500 }
