@@ -7,7 +7,7 @@ export default function About() {
     return (
         <div className="flex flex-column fc-center u-centerText ">
             <div className="hero-grid-right">
-                <div className="text-card">
+                <div className="text-card overlay-left-mobile">
                     <h1>Lake Superior.</h1>
                     <h1>Climbing.</h1>
                     <h1>Women.</h1>
