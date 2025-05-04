@@ -1,10 +1,28 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { MasonryPhotoAlbum } from 'react-photo-album'
+import 'react-photo-album/masonry.css'
+
+import smallImages from '../metaData/photoGallery'
+
 export default function Community() {
-    const detailText = 'This page is under construction, check back soon!'
+    const shuffleArray = (array: any[]) => {
+        return array
+            .map((item) => ({ item, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ item }) => item)
+    }
+
+    const [shuffledArray, setShuffledArray] = useState<any[]>([])
+
+    useEffect(() => {
+        setShuffledArray(shuffleArray(smallImages))
+    }, [])
 
     return (
         <div className="grid-container full">
-            <h1 className="h1-accent">Coming Soon!</h1>
-            <p className="copy-primary">{detailText}</p>
+            <MasonryPhotoAlbum photos={shuffledArray} />
         </div>
     )
 }
