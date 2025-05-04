@@ -52,7 +52,7 @@ export default function RootLayout({ children }: LayoutProps) {
                 />
                 <meta
                     name="keywords"
-                    content="rock climbing, climbing, women climbers, non-binary climbers, Duluth climbing, Minnesota Climnbing, North Shore VertiGals, VertiGals, verti gals, climbing community, climbing events"
+                    content="rock climbing, climbing, women climbers, non-binary climbers, Duluth climbing, Minnesota Climnbing, North Shore VertiGals, VertiGals, vertigals, verti gals, climbing community, climbing events"
                 />
                 <meta name="robots" content="index, follow" />
                 <meta

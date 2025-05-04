@@ -5,7 +5,7 @@ import { kv } from '@vercel/kv'
 
 const ratelimit = new Ratelimit({
     redis: kv,
-    limiter: Ratelimit.slidingWindow(5, '10 s')
+    limiter: Ratelimit.slidingWindow(5, '10 s'),
 })
 
 export async function POST(request: Request) {
@@ -32,7 +32,7 @@ export async function POST(request: Request) {
             auth: {
                 user: process.env.VG_EMAIL_USER,
                 pass: process.env.VG_EMAIL_PASSWORD,
-            }
+            },
         })
 
         const mailOptions = {

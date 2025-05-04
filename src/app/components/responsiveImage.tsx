@@ -5,14 +5,23 @@ import { ImageMap } from '../metaData/imageMap'
 
 interface ResponsiveImageProps {
     className?: string
+    containerClassName?: string
     image: string | Photo
-    radius: 'wavy' | 'rounded' | 'none'
+    radius?: 'wavy' | 'rounded' | 'none'
+    photoCredit?: string
 }
 
 type ExtendedImageProps = ResponsiveImageProps & Omit<ImageProps, 'src' | 'alt'>
 
 export default function ResponsiveImage(props: ExtendedImageProps) {
-    const { image, radius, className, ...rest } = props
+    const {
+        image,
+        radius = 'none',
+        className,
+        containerClassName,
+        photoCredit,
+        ...rest
+    } = props
 
     let imageSrc: StaticImageData | string | undefined
     let imageAlt = ''
@@ -39,12 +48,17 @@ export default function ResponsiveImage(props: ExtendedImageProps) {
     }
 
     return (
-        <Image
-            src={imageSrc}
-            alt={imageAlt}
-            className={className}
-            style={additionalStyles}
-            {...rest}
-        />
+        <div className={containerClassName}>
+            <Image
+                src={imageSrc}
+                alt={imageAlt}
+                className={className}
+                style={additionalStyles}
+                {...rest}
+            />
+            {photoCredit && (
+                <p className="blog-photo-credit">Photo: {photoCredit}</p>
+            )}
+        </div>
     )
 }

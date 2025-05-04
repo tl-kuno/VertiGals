@@ -1,9 +1,15 @@
+'use client'
+
 import ResponsiveImage from '../components/responsiveImage'
 import BoardMemberCards from '../components/boardMemberCards'
 import { writtenContent } from '../metaData/writtenContent'
 
 export default function About() {
     const { history } = writtenContent.about
+
+    const navigateToBlogPost = () => {
+        window.location.href = '/community/gettingBoulder'
+    }
     return (
         <div className="flex flex-column fc-center u-centerText ">
             <div className="hero-grid-right">
@@ -23,7 +29,7 @@ export default function About() {
                         <br />
                     </p>
                 ))}
-                <h3 className="h3-accent">
+                <h3 className="h3-accent" onClick={navigateToBlogPost}>
                     CLICK HERE TO READ THE STORY OF HOW WE STARTED
                 </h3>
             </div>

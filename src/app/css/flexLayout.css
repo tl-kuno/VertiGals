@@ -1,0 +1,46 @@
+.flex {
+    display: flex;
+    padding: 0.25rem 0.5rem;
+}
+
+.flex-row {
+    flex-flow: row nowrap;
+    gap: 1rem;
+}
+
+.flex-column {
+    flex-flow: column nowrap;
+    gap: 0.5rem;
+}
+
+.fc-center {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.fr-start {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.fr-center {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.fr-end {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.gap-2 {
+    gap: 2rem;
+}

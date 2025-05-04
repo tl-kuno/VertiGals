@@ -1,0 +1,62 @@
+.grid-link {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 8px;
+    max-height: 350px;
+    aspect-ratio: 3/2;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+
+    h1 {
+        z-index: 2;
+        transition: color 0.5s ease;
+    }
+
+    &:hover,
+    &:active {
+        color: var(--near-white);
+    }
+}
+
+.grid-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--teal-darker);
+    transition: width 0.5s ease;
+    z-index: 1;
+}
+
+.grid-link:hover::before {
+    width: 100%;
+}
+
+.grid-link:hover {
+    color: var(--near-white);
+}
+
+/* Image classes
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.grid-link.about {
+    background-image: url(../images/home_about.png);
+}
+
+.grid-link.community {
+    background-image: url(../images/home_commnunity.png);
+}
+
+.grid-link.events {
+    background-image: url(../images/home_events.png);
+}
+
+.grid-link.merch {
+    background-image: url(../images/home_merch.png);
+}

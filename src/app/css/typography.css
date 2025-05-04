@@ -1,0 +1,151 @@
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1 {
+    line-height: 1.2;
+    margin: 0.75rem 0;
+}
+
+h2 {
+    line-height: 1.25;
+    margin: 0.25rem 0;
+}
+
+p {
+    max-width: 75ch;
+    margin-top: 0;
+}
+
+.h1-primary {
+    font-size: var(--fontSizeL3);
+}
+.h1-accent {
+    font-family: 'Shadows Into Light Two', serif;
+    font-size: var(--fontSizeL4);
+    color: var(--teal-darkest);
+    padding: 0 2rem;
+}
+
+.h2-primary {
+    font-size: var(--fontSizeL1);
+    margin: 1rem;
+}
+
+.h2-card {
+    font-size: var(--fontSizeL2);
+    color: var(--teal-darkest);
+    font-weight: 500;
+    text-align: center;
+    padding-top: 0.5rem;
+    margin: 0;
+}
+
+.h2-accent {
+    font-family: 'Shadows Into Light Two', serif;
+    font-size: var(--fontSizeL2);
+    color: var(--teal-darkest);
+}
+
+.h3-primary {
+    padding: 0;
+    padding-top: 0.2s5rem;
+    margin: 0;
+    font-size: var(--fontSizeL1);
+}
+
+.h3-accent {
+    font-family: 'Shadows Into Light Two', serif;
+    color: var(--teal-darker);
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+}
+
+.copy-primary {
+    margin: 0 auto;
+    font-size: var(--fontSizeBase);
+}
+.copy-accent {
+    font-size: var(--fontSizeBase);
+    color: var(--teal-darker);
+    font-weight: 500;
+    margin: 0;
+}
+
+.copy-small {
+    font-size: var(--fontSizeS1);
+    line-height: 1.15;
+}
+
+@media screen and (max-width: 600px) {
+    .h1-primary {
+        font-size: var(--fontSizeL3Mobile);
+    }
+    .h1-accent {
+        font-size: var(--fontSizeL4Mobile);
+    }
+
+    .h2-primary {
+        font-size: var(--fontSizeL1Mobile);
+    }
+
+    .h2-card {
+        font-size: var(--fontSizeL2Mobile);
+    }
+
+    .h2-accent {
+        font-size: var(--fontSizeL2Mobile);
+    }
+
+    .h3-primary {
+        font-size: var(--fontSizeL1Mobile);
+    }
+
+    .copy-primary {
+        margin: 0 auto;
+        font-size: var(--fontSizeBaseMobile);
+    }
+    .copy-accent {
+        font-size: var(--fontSizeBaseMobile);
+    }
+
+    .copy-small {
+        font-size: var(--fontSizeS1Mobile);
+    }
+}
+
+/* Text Displays
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.text-card {
+    > h1 {
+        font-family: 'Shadows Into Light Two', serif;
+        color: var(--teal-lightest);
+        font-size: clamp(1rem, 3.25vw, 3rem);
+        letter-spacing: 0.15rem;
+        margin: 0;
+        padding: 0.5rem 2rem;
+    }
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-self: stretch;
+    text-align: left;
+    background-color: var(--teal-primary);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.text-card-light {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center;
+    max-width: 80vw;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: var(--true-white);
+    padding: 0 1rem 1rem 1rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 0 var(--gray-lighter);
+}
