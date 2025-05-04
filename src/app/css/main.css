@@ -1,0 +1,171 @@
+@import './typography.css';
+@import './gridLayout.css';
+@import './flexLayout.css';
+@import './headerFooter.css';
+@import './formAndButton.css';
+@import './heroImages.css';
+@import './gridNav.css';
+@import './calendar.css';
+@import './emailSignUp.css';
+@import './imageCarousel.css';
+@import './blog.css';
+
+/* CSS Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+html {
+    --theme-hue: 187;
+
+    /* color variables */
+    --true-white: white;
+    --true-black: black;
+    --near-black: hsl(var(--theme-hue), 43%, 4%);
+    --near-white: hsl(var(--theme-hue), 62%, 96%);
+
+    --gray-lighter: hsl(0, 0%, 52%);
+    --gray-primary: hsl(0, 0%, 26%);
+    --gray-darker: hsl(0, 0%, 16%);
+
+    --teal-darkest: hsl(var(--theme-hue), 43%, 24%);
+    --teal-darker: hsl(var(--theme-hue), 43%, 31%);
+    --teal-primary: hsl(var(--theme-hue), 64%, 38%);
+    --teal-lighter: hsl(var(--theme-hue), 43%, 79%);
+    --teal-lightest: hsl(var(--theme-hue), 66%, 92%);
+
+    --text-color-richer: var(--teal-darker);
+    --text-color-normal: var(--gray-primary);
+    --text-color-softer: var(--teal-lighter);
+
+    --success-hue: 153;
+    --success: hsl(var(--success-hue), 23%, 32%);
+    --success-light: hsl(var(--success-hue), 23%, 88%);
+
+    --error-hue: 0;
+    --error: hsl(var(--error-hue), 74%, 40%);
+    --error-light: hsl(var(--error-hue), 74%, 88%);
+
+    /* font and iconography variables */
+    --fontSizeL4: 3rem;
+    --fontSizeL3: 2.5rem;
+    --fontSizeL2: 2rem;
+    --fontSizeL1: 1.5rem;
+    --fontSizeBase: 1.15rem;
+    --fontSizeS1: 1rem;
+
+    --fontSizeL4Mobile: 1.75rem;
+    --fontSizeL3Mobile: 1.5rem;
+    --fontSizeL2Mobile: 1.25rem;
+    --fontSizeL1Mobile: 1.15rem;
+    --fontSizeBaseMobile: 1rem;
+    --fontSizeS1Mobile: 0.85rem;
+
+    --iconSizeL4: 4rem;
+    --iconSizeL3: 3rem;
+    --iconSizeL2: 2rem;
+    --iconSizeL1: 1.5rem;
+    --iconSizeBase: 1.25rem;
+    --iconSizeS1: 1rem;
+    --iconSizeS2: 0.75rem;
+
+    /* scrollbar style variables */
+    --sb-track-color: var(--teal-lightest);
+    --sb-thumb-color: var(--gray-lighter);
+    --sb-size: 8px;
+}
+
+* {
+    font-family: 'Solway', serif;
+}
+
+/* Clearing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* Self Clearing Goodness */
+.container:after,
+.row:after,
+.u-cf {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Solway', serif;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text-color-normal);
+    background-color: var(--near-white);
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 3px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
+/* Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-color-hover);
+}
+
+.link {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Utilities
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.u-vw80 {
+    width: 80vw;
+}
+
+.u-centerText {
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .u-centerOnMobile {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 600px) {
+    .hide-on-large {
+        display: none;
+    }
+}
