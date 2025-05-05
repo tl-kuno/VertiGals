@@ -29,7 +29,7 @@ interface LayoutProps {
 }
 
 export default function RootLayout({ children }: LayoutProps) {
-    const baseUrl = process.env.VG_BASE_URL || 'http://localhost:3000'
+    const baseUrl = 'https://northshorevertigals.org'
     const googleSearchConsoleVerification = process.env.VG_GOOGLE_SEARCH_TAG
     const websiteSearchImage = `${baseUrl}/images/GoogleSearchImage.png`
     const logoImage = `${baseUrl}/images/TealLogo.png`

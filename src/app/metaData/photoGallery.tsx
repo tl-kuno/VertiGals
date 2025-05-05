@@ -1,6 +1,7 @@
 import type { Photo } from 'react-photo-album'
 
-const baseUrl = process.env.VG_BASE_URL || 'http://localhost:3000'
+const baseUrl = 'https://northshorevertigals.org'
+
 const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48]
 
 function imageLink(

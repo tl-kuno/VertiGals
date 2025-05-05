@@ -5,7 +5,6 @@ import {
     RenderImageContext,
     RenderImageProps,
     MasonryPhotoAlbum,
-    MasonryPhotoAlbumProps,
 } from 'react-photo-album'
 import 'react-photo-album/rows.css'
 
