@@ -4,4 +4,4 @@ Meet the [North Shore VertiGals](http://northshorevertigals.com), a climbing gro
 
 ## The Creators
 
-Board members [Taylor Kuno](portfoliolinkhere) and [Marta Daehn](portfoliolinkhere) joined forces to make this site come to life. With Marta's experience in UX/UI design and Taylor's knowledge as a developer the timing was right to build something more personal and robust to promote the work that VertiGals is doing and document the history of the organization.
+Board members Taylor Kuno and Marta Daehn joined forces to make this site come to life. With Marta's experience in UX/UI design and Taylor's knowledge as a developer the timing was right to build something more personal and robust to promote the work that VertiGals is doing and document the history of the organization.
