@@ -15,7 +15,10 @@ export default function Header() {
         const pageLink = pageId === 'home' ? '/' : `/${pageId}`
 
         let className = 'nav-item'
-        if (pathname === pageLink) {
+        if (pathname.includes(pageId)) {
+            className += ' current'
+        }
+        if (pageId === 'home' && pathname === '/') {
             className += ' current'
         }
 

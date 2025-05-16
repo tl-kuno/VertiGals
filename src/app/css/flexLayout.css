@@ -10,7 +10,7 @@
 
 .flex-column {
     flex-flow: column nowrap;
-    gap: 0.5rem;
+    gap: 1.25rem;
 }
 
 .fc-center {

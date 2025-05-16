@@ -29,7 +29,7 @@ export default function About() {
                         <br />
                     </p>
                 ))}
-                <h3 className="h3-accent" onClick={navigateToBlogPost}>
+                <h3 className="h3-accent link" onClick={navigateToBlogPost}>
                     CLICK HERE TO READ THE STORY OF HOW WE STARTED
                 </h3>
             </div>

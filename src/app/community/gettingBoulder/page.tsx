@@ -31,14 +31,13 @@ export default function GettingBoulder() {
             <p className="blog-copy">
                 I had been nervous about the trip. My best friend Erin and I
                 were invited by two friends, prominent climbers in our
-                community. I felt privileged to be there. It was an opportunity
-                to learn from the best. But I was worried that I would hold the
-                others back, or wouldn't be able to climb what everyone else
-                wanted to climb. I hadn't been bouldering for long. The guys
-                climbed harder than I did to start, and I had recently injured
-                my rotator cuff. It healed, but I hadn't had time to train for
-                the trip. I had lowered my expectations for the trip. I didn't
-                want to get frustrated.
+                community. It was an opportunity to learn from the best. But I
+                was worried that I would hold the others back, or wouldn't be
+                able to climb what everyone else wanted to climb. I hadn't been
+                bouldering for long. The guys climbed harder than I did to
+                start, and I had recently injured my rotator cuff. It healed,
+                but I hadn't had time to train for the trip. I had lowered my
+                expectations for the trip. I didn't want to get frustrated.
             </p>
             <ResponsiveImage
                 image="gettingBoulder2"

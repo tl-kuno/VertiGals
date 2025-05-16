@@ -3,6 +3,7 @@
 h1 {
     line-height: 1.2;
     margin: 0.75rem 0;
+    max-width: 85ch;
 }
 
 h2 {
@@ -11,7 +12,7 @@ h2 {
 }
 
 p {
-    max-width: 75ch;
+    max-width: 85ch;
     margin-top: 0;
 }
 
@@ -141,7 +142,7 @@ p {
     flex-flow: column nowrap;
     justify-content: center;
     text-align: center;
-    max-width: 80vw;
+    width: min(80vw, 900px);
     margin: 2rem auto;
     padding: 1rem;
     background-color: var(--true-white);
