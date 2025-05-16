@@ -26,9 +26,13 @@ export default function Community() {
     }
 
     return (
-        <div className="grid-container full">
+        <div className="grid-container full u-pad1">
             <div className="text-card-light grid-container halves">
-                <ResponsiveImage image="blog" radius="rounded" />
+                <ResponsiveImage
+                    image="blog"
+                    radius="rounded"
+                    className="u-mw350"
+                />
                 <div className="flex flex-col fc-center">
                     <h2 className="h2-primary">Coming soon...</h2>
                     <p>

@@ -44,17 +44,17 @@ html {
     --error-light: hsl(var(--error-hue), 74%, 88%);
 
     /* font and iconography variables */
-    --fontSizeL4: 3rem;
-    --fontSizeL3: 2.5rem;
-    --fontSizeL2: 2rem;
-    --fontSizeL1: 1.5rem;
+    --fontSizeL4: 2.75rem;
+    --fontSizeL3: 2.25rem;
+    --fontSizeL2: 1.75rem;
+    --fontSizeL1: 1.35rem;
     --fontSizeBase: 1.15rem;
     --fontSizeS1: 1rem;
 
-    --fontSizeL4Mobile: 1.75rem;
-    --fontSizeL3Mobile: 1.5rem;
-    --fontSizeL2Mobile: 1.25rem;
-    --fontSizeL1Mobile: 1.15rem;
+    --fontSizeL4Mobile: 1.5rem;
+    --fontSizeL3Mobile: 1.25rem;
+    --fontSizeL2Mobile: 1.15rem;
+    --fontSizeL1Mobile: 1.05rem;
     --fontSizeBaseMobile: 1rem;
     --fontSizeS1Mobile: 0.85rem;
 
@@ -104,6 +104,7 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-flow: column nowrap;
+    gap: 1rem;
     min-height: 100vh;
 }
 
@@ -147,6 +148,14 @@ a:hover {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .u-vw80 {
     width: 80vw;
+}
+
+.u-mw350 {
+    max-width: 350px;
+}
+
+.u-pad1 {
+    padding: 1rem;
 }
 
 .u-centerText {
