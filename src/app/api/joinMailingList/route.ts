@@ -1,16 +1,27 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
-import { Ratelimit } from '@upstash/ratelimit'
-import { kv } from '@vercel/kv'
 
-const ratelimit = new Ratelimit({
-    redis: kv,
-    limiter: Ratelimit.slidingWindow(5, '10 s'),
-})
+// Simple in-memory rate limit: max 5 requests per 10 seconds per IP
+const requests = new Map<string, number[]>()
+
+function isRateLimited(ip: string): boolean {
+    const now = Date.now()
+    const windowMs = 10_000
+    const max = 5
+    const timestamps = (requests.get(ip) ?? []).filter(
+        (t) => now - t < windowMs
+    )
+    if (timestamps.length >= max) return true
+    requests.set(ip, [...timestamps, now])
+    return false
+}
 
 export async function POST(request: Request) {
-    const { success } = await ratelimit.limit('joinMailingList')
-    if (!success) {
+    const ip =
+        request.headers.get('x-forwarded-for')?.split(',')[0].trim() ??
+        'unknown'
+
+    if (isRateLimited(ip)) {
         return NextResponse.json(
             { error: 'Too many requests, please try again later.' },
             { status: 429 }
@@ -27,12 +38,23 @@ export async function POST(request: Request) {
                 { status: 400 }
             )
         }
+
+        if (!process.env.VG_EMAIL_USER || !process.env.VG_EMAIL_PASSWORD) {
+            return NextResponse.json(
+                { error: 'Email service not configured' },
+                { status: 503 }
+            )
+        }
+
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
                 user: process.env.VG_EMAIL_USER,
                 pass: process.env.VG_EMAIL_PASSWORD,
             },
+            connectionTimeout: 5000,
+            greetingTimeout: 5000,
+            socketTimeout: 5000,
         })
 
         const mailOptions = {
