@@ -147,7 +147,7 @@ class VertiGalsWebsite extends React.Component<
                             <p className="copy-accent">
                                 Join our email list to get the latest news!
                             </p>
-                            <form>
+                            <form onSubmit={this.onEmailSignUp}>
                                 <input
                                     type="email"
                                     placeholder="Enter your email"
@@ -157,8 +157,8 @@ class VertiGalsWebsite extends React.Component<
                                     required
                                 />
                                 <button
+                                    type="submit"
                                     className="button-primary"
-                                    onClick={this.onEmailSignUp}
                                     disabled={!isEmailValid}
                                 >
                                     Sign up
